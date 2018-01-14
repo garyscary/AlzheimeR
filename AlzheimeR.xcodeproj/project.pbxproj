@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2082EFCE1CF84350E679AEFB /* Pods_AlzheimeR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE03F36327EA9AA849E1FF41 /* Pods_AlzheimeR.framework */; };
+		2D0CD096200BDA9600D8B0AB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D0CD095200BDA9600D8B0AB /* ProfileViewController.swift */; };
 		4E74BC1B200AD1F40036D46C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74BC1A200AD1F40036D46C /* AppDelegate.swift */; };
 		4E74BC1D200AD1F40036D46C /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E74BC1C200AD1F40036D46C /* art.scnassets */; };
 		4E74BC1F200AD1F40036D46C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74BC1E200AD1F40036D46C /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D0CD095200BDA9600D8B0AB /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		4E74BC17200AD1F40036D46C /* AlzheimeR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AlzheimeR.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4E74BC1A200AD1F40036D46C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4E74BC1C200AD1F40036D46C /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		4E74BC19200AD1F40036D46C /* AlzheimeR */ = {
 			isa = PBXGroup;
 			children = (
+				2D0CD095200BDA9600D8B0AB /* ProfileViewController.swift */,
 				4E74BC1A200AD1F40036D46C /* AppDelegate.swift */,
 				4E74BC1C200AD1F40036D46C /* art.scnassets */,
 				4E74BC1E200AD1F40036D46C /* ViewController.swift */,
@@ -214,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D0CD096200BDA9600D8B0AB /* ProfileViewController.swift in Sources */,
 				4E74BC1F200AD1F40036D46C /* ViewController.swift in Sources */,
 				4E74BC1B200AD1F40036D46C /* AppDelegate.swift in Sources */,
 			);
@@ -354,10 +358,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LVY296X3ZD;
+				DEVELOPMENT_TEAM = DH2XT94R59;
 				INFOPLIST_FILE = AlzheimeR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Gary-Dhillion.AlzheimeR";
+				PRODUCT_BUNDLE_IDENTIFIER = "G-D.AlzheimeR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -370,10 +374,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = LVY296X3ZD;
+				DEVELOPMENT_TEAM = DH2XT94R59;
 				INFOPLIST_FILE = AlzheimeR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Gary-Dhillion.AlzheimeR";
+				PRODUCT_BUNDLE_IDENTIFIER = "G-D.AlzheimeR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
