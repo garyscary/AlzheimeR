@@ -34,7 +34,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, CLLocationManagerDele
         timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(ViewController.wtvr), userInfo: nil, repeats: true)
 
         
-        yourName = "GaryDILLONG"
+        yourName = person_name
 
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
