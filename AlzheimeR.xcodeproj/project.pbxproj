@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2082EFCE1CF84350E679AEFB /* Pods_AlzheimeR.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE03F36327EA9AA849E1FF41 /* Pods_AlzheimeR.framework */; };
 		4E74BC1B200AD1F40036D46C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74BC1A200AD1F40036D46C /* AppDelegate.swift */; };
 		4E74BC1D200AD1F40036D46C /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E74BC1C200AD1F40036D46C /* art.scnassets */; };
 		4E74BC1F200AD1F40036D46C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E74BC1E200AD1F40036D46C /* ViewController.swift */; };
@@ -24,6 +25,9 @@
 		4E74BC23200AD1F40036D46C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4E74BC26200AD1F40036D46C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E74BC28200AD1F40036D46C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5408344D29F64F7FCEFA3B39 /* Pods-AlzheimeR.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlzheimeR.debug.xcconfig"; path = "Pods/Target Support Files/Pods-AlzheimeR/Pods-AlzheimeR.debug.xcconfig"; sourceTree = "<group>"; };
+		75C35148060F18B6FA09392B /* Pods-AlzheimeR.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AlzheimeR.release.xcconfig"; path = "Pods/Target Support Files/Pods-AlzheimeR/Pods-AlzheimeR.release.xcconfig"; sourceTree = "<group>"; };
+		DE03F36327EA9AA849E1FF41 /* Pods_AlzheimeR.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AlzheimeR.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +35,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2082EFCE1CF84350E679AEFB /* Pods_AlzheimeR.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1D82D91662ECE5A4F6EF9570 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE03F36327EA9AA849E1FF41 /* Pods_AlzheimeR.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		42D6D56C7FB07CBD2307FA38 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				5408344D29F64F7FCEFA3B39 /* Pods-AlzheimeR.debug.xcconfig */,
+				75C35148060F18B6FA09392B /* Pods-AlzheimeR.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		4E74BC0E200AD1F40036D46C = {
 			isa = PBXGroup;
 			children = (
 				4E74BC19200AD1F40036D46C /* AlzheimeR */,
 				4E74BC18200AD1F40036D46C /* Products */,
+				42D6D56C7FB07CBD2307FA38 /* Pods */,
+				1D82D91662ECE5A4F6EF9570 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -74,9 +98,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4E74BC2B200AD1F40036D46C /* Build configuration list for PBXNativeTarget "AlzheimeR" */;
 			buildPhases = (
+				99A492FC66B4F8C9F3A9ED5E /* [CP] Check Pods Manifest.lock */,
 				4E74BC13200AD1F40036D46C /* Sources */,
 				4E74BC14200AD1F40036D46C /* Frameworks */,
 				4E74BC15200AD1F40036D46C /* Resources */,
+				BC99C1F7BD2E180801E8E7A8 /* [CP] Embed Pods Frameworks */,
+				399BD426124E7D282B140F8F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -133,6 +160,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		399BD426124E7D282B140F8F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlzheimeR/Pods-AlzheimeR-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		99A492FC66B4F8C9F3A9ED5E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		BC99C1F7BD2E180801E8E7A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-AlzheimeR/Pods-AlzheimeR-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4E74BC13200AD1F40036D46C /* Sources */ = {
@@ -275,13 +350,14 @@
 		};
 		4E74BC2C200AD1F40036D46C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5408344D29F64F7FCEFA3B39 /* Pods-AlzheimeR.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVY296X3ZD;
 				INFOPLIST_FILE = AlzheimeR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Gary-Dhillon.AlzheimeR";
+				PRODUCT_BUNDLE_IDENTIFIER = "Gary-Dhillion.AlzheimeR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -290,13 +366,14 @@
 		};
 		4E74BC2D200AD1F40036D46C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75C35148060F18B6FA09392B /* Pods-AlzheimeR.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = LVY296X3ZD;
 				INFOPLIST_FILE = AlzheimeR/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Gary-Dhillon.AlzheimeR";
+				PRODUCT_BUNDLE_IDENTIFIER = "Gary-Dhillion.AlzheimeR";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
