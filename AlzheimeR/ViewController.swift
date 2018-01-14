@@ -8,12 +8,17 @@
 import UIKit
 import SceneKit
 import ARKit
+import CoreGraphics
 
 import ARCL
 import CoreLocation
 
 class ViewController: UIViewController, ARSCNViewDelegate, CLLocationManagerDelegate {
-
+    @objc
+    func wtvr() {
+        print("hello")
+    }
+    
     var sceneLocationView = SceneLocationView()
 
     @IBOutlet var sceneView: ARSCNView!
@@ -21,9 +26,15 @@ class ViewController: UIViewController, ARSCNViewDelegate, CLLocationManagerDele
     var locationManager: CLLocationManager = CLLocationManager()
     var alt = 0.0
     
+    var yourName = "";
+    var timer:Timer?
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        timer = Timer.scheduledTimer(timeInterval: 5, target: self, selector: #selector(ViewController.wtvr), userInfo: nil, repeats: true)
+
+        
+        yourName = "GaryDILLONG"
 
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.delegate = self
@@ -43,36 +54,40 @@ class ViewController: UIViewController, ARSCNViewDelegate, CLLocationManagerDele
         //sceneView.scene = scene
         
         let coordinate = CLLocationCoordinate2D(latitude: 49.26225, longitude: -123.2452)
-        let location = CLLocation(coordinate: coordinate, altitude: 85)
+        let location = CLLocation(coordinate: coordinate, altitude: 90)
         let image = UIImage(named: "art.scnassets/pin.png")!
+        let image3 = textToImage(drawText:"Son's Home", inImage:image, atPoint:CGPoint(x:0,y:0))
         
-        let annotationNode = LocationAnnotationNode(location: location, image: image)
+        let annotationNode = LocationAnnotationNode(location: location, image: image3)
         annotationNode.scaleRelativeToDistance = true
         
         let coordinate1 = CLLocationCoordinate2D(latitude: 49.2651, longitude: -123.2506)
         let location1 = CLLocation(coordinate: coordinate1, altitude: 85)
         let image1 = UIImage(named: "art.scnassets/pin.png")!
+        let image2 = textToImage(drawText:"STUFF", inImage:image1, atPoint:CGPoint(x:0,y:0))
         
-        let annotationNode1 = LocationAnnotationNode(location: location1, image: image1)
+        let annotationNode1 = LocationAnnotationNode(location: location1, image: image2)
         annotationNode1.scaleRelativeToDistance = true
         
-        let label = UILabel(frame: .zero)
-        label.textColor = .yellow
-        label.font = UIFont.systemFont(ofSize: 22)
-        label.text = "Hello, world"
-        label.sizeToFit()
+//        let text = SCNText(string: "Hello,World", extrusionDepth: 1)
+//        let material = SCNMaterial()
+//        material.diffuse.contents = UIColor.green
+//        text.materials = [material]
+//
+//        let textNode = SCNNode()
+//        textNode.position = SCNVector3(x:0,y:0,z:0)
+//        textNode.scale = SCNVector3(x:0.01,y:0.01,z:0.01)
+//        textNode.geometry = text
         
-        UIGraphicsBeginImageContextWithOptions(label.frame.size, true, 0)
-        guard let context = UIGraphicsGetCurrentContext() else { exit(0) }
-        label.layer.render(in: context)
-        let image3 = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        let annotationNode2 = LocationAnnotationNode(location: location1, image: image3!)
-        annotationNode2.scaleRelativeToDistance = false
+        //let annotationNode2 = LocationAnnotationNode(location: location, textNode: textNode)
+        //annotationNode2.scaleRelativeToDistance = false
+
+        //sceneLocationView.autoenablesDefaultLighting = true
         
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode)
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode1)
+        //sceneLocationView.scene.rootNode.addChildNode(textNode)
+        
         sceneLocationView.run()
 
         
@@ -81,10 +96,56 @@ class ViewController: UIViewController, ARSCNViewDelegate, CLLocationManagerDele
         
     }
     
+    func textToImage(drawText text: String, inImage image: UIImage, atPoint point: CGPoint) -> UIImage {
+        let textColor = UIColor.green
+        let textFont = UIFont(name: "Helvetica Bold", size: 20)!
+        
+        let scale = UIScreen.main.scale
+        UIGraphicsBeginImageContextWithOptions(image.size, false, scale)
+        
+        let textFontAttributes = [
+            NSAttributedStringKey.font: textFont,
+            NSAttributedStringKey.foregroundColor: textColor,
+            ] as [NSAttributedStringKey : Any]
+        image.draw(in: CGRect(origin: CGPoint.zero, size: image.size))
+        
+        let rect = CGRect(origin: point, size: image.size)
+        text.draw(in: rect, withAttributes: textFontAttributes)
+        
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage!
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let lastLocation: CLLocation = locations[locations.count - 1]
     
+        
+        
         alt = lastLocation.altitude
+        
+        let url = URL(string: "http://52.233.39.60:5000/gps")!
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpMethod = "POST"
+        let postString = "{\"name\":\"\(yourName)\", \"lon\":\"\(lastLocation.coordinate.longitude)\", \"lat\":\"\(lastLocation.coordinate.latitude)\"}"
+        request.httpBody = postString.data(using: .utf8)
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data, error == nil else {                                                 // check for fundamental networking error
+                print("error=\(error)")
+                return
+            }
+            
+            if let httpStatus = response as? HTTPURLResponse, httpStatus.statusCode != 200 {           // check for http errors
+                print("statusCode should be 200, but is \(httpStatus.statusCode)")
+                print("response = \(response)")
+            }
+            
+            let responseString = String(data: data, encoding: .utf8)
+            print("responseString = \(responseString)")
+        }
+        task.resume()
         print("\(alt)")
     }
     
