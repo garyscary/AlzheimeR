@@ -115,6 +115,8 @@ class ViewController: UIViewController, ARSCNViewDelegate, CLLocationManagerDele
         sceneLocationView.addLocationNodeWithConfirmedLocation(locationNode: annotationNode1)
         //sceneLocationView.scene.rootNode.addChildNode(textNode)
         
+        print("DOOM")
+        
         sceneLocationView.run()
     }
     

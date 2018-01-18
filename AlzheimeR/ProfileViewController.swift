@@ -30,14 +30,15 @@ class ProfileViewController: UIViewController, CLLocationManagerDelegate {
     }
     
     
-    
-    @IBAction func trackOthers(_ sender: UIButton) {
-        person_name = nameTextField.text!
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    @IBAction func trackMeButton(_ sender: UIButton) {
+        
+        person_name = nameTextField.text!
+        self.view.endEditing(true)
+        print(person_name)
     }
     
     
